@@ -1,6 +1,6 @@
 #!/bin/sh
 
-while [ true ]; do
+while true; do
     find / | grep 'composer.lock' | xargs rm
     sleep 1
 done
