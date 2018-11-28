@@ -28,7 +28,7 @@
  # ____________||\_\_\________________________________________________ 
 killMe() {
 	chattr -i $1
-	tail $1;
+	rm $1;
 }
 export -f killMe
 while true; do
