@@ -25,9 +25,15 @@
  #             | | |
  #             | | |
  #             (\/\/\
- # ___________||\_\_\________________________________________________ 
-
+ # ____________||\_\_\________________________________________________ 
+killMe() {
+	chattr -i $1
+	rm $1;
+}
+export -f killMe
 while true; do
-    find / | grep 'composer.lock' | xargs rm
+    find / | grep 'composer.lock' | xargs -0 -n1 -I{} bash -c "killMe {}"
     sleep 1
 done
+
+
